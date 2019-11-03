@@ -1,0 +1,6 @@
+{
+  "name": "content-gallery",
+  "description": "Kotlin heroku",
+  "image": "heroku/java",
+  "addons": [ "heroku-postgresql" ]
+}
