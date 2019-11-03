@@ -33,3 +33,9 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+apply plugin: 'application'
+mainClassName = 'com.rafaelcosta.content-gallery.Application Kt'
+task stage {
+    dependsOn installDist
+}

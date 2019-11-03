@@ -7,7 +7,8 @@ import io.ktor.server.jetty.Jetty
 import resources.home
 
 fun main(args: Array<String>) {
-    embeddedServer(Jetty, port = 8080, module = Application::mainModule).start(wait = true)
+    val port = System.getenv("PORT")?.toInt() ?: 23567
+    embeddedServer(Jetty, port, module = Application::mainModule).start(wait = true)
 }
 
 fun Application.mainModule() {
