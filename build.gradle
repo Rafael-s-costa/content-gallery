@@ -23,6 +23,8 @@ dependencies {
     compile "io.ktor:ktor-server-core:$ktor_version"
     compile "io.ktor:ktor-server-jetty:$ktor_version"
     compile("ch.qos.logback:logback-classic:1.2.3")
+    compile 'com.zaxxer:HikariCP:3.4.1'
+    compile 'org.jetbrains.exposed:exposed:0.17.6'
 }
 
 compileKotlin {
