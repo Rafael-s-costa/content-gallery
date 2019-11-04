@@ -3,17 +3,23 @@ package db
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
+import java.sql.DriverManager
+import java.sql.SQLException
+import java.net.URISyntaxException
+
+
 
 class DatabaseFactory {
 
     fun init() {
+        println(System.getenv("JDBC_DATABASE_URL"))
         Database.connect(hikari())
     }
 
     private fun hikari(): HikariDataSource {
         val config = HikariConfig()
-        config.driverClassName = "org.h2.Driver"
-        config.jdbcUrl = "jdbc:h2:mem:test"
+        config.driverClassName = "org.postgresql.Driver"
+        config.jdbcUrl = System.getenv("JDBC_DATABASE_URL")
         config.maximumPoolSize = 3
         config.isAutoCommit = false
         config.transactionIsolation = "TRANSACTION_REPEATABLE_READ"
