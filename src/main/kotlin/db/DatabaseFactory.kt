@@ -12,7 +12,6 @@ import java.net.URISyntaxException
 class DatabaseFactory {
 
     fun init() {
-        println(System.getenv("JDBC_DATABASE_URL"))
         Database.connect(hikari())
     }
 
