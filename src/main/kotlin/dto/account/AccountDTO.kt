@@ -1,4 +1,4 @@
-package entities.account
+package dto.account
 
 import org.joda.time.DateTime
 

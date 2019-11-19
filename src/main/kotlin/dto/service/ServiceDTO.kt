@@ -1,4 +1,4 @@
-package entities.service
+package dto.service
 
 import org.joda.time.DateTime
 

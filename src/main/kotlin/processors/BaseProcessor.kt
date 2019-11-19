@@ -1,6 +1,8 @@
 package processors
 
+import api.BaseResponse
+
 interface BaseProcessor {
 
-    fun process()
+    fun <K,V> process(request: Map<K, V>) : BaseResponse
 }

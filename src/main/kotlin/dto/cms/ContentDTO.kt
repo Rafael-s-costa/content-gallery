@@ -1,4 +1,4 @@
-package entities.cms
+package dto.cms
 
 data class ContentDTO (
     val id:         Integer,

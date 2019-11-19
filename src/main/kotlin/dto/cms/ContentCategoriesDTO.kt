@@ -1,4 +1,4 @@
-package entities.cms
+package dto.cms
 
 import org.joda.time.DateTime
 
