@@ -6,7 +6,7 @@ data class CategoryDTO (
     val id:             Int,
     val name:           String,
     val description:    String,
-    val service_id:     Int,
+    val serviceId:     Int,
     val cdate:          DateTime,
     val mdate:          DateTime
 );

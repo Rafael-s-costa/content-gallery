@@ -2,15 +2,17 @@ package db
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.StdOutSqlLogger
+import kotlinx.coroutines.withContext
+import org.jetbrains.exposed.sql.addLogger
+import org.jetbrains.exposed.sql.transactions.transaction
 import java.sql.DriverManager
 import java.sql.SQLException
 import java.net.URISyntaxException
 
-
-
-class DatabaseFactory {
-
+object DatabaseFactory {
     fun init() {
         Database.connect(hikari())
     }
@@ -25,4 +27,13 @@ class DatabaseFactory {
         config.validate()
         return HikariDataSource(config)
     }
+
+    suspend fun <T> dbQuery(
+        block: () -> T): T =
+        withContext(Dispatchers.IO) {
+            transaction {
+                addLogger(StdOutSqlLogger)
+                block()
+            }
+        }
 }

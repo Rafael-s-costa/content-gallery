@@ -1,3 +1,4 @@
+import db.DatabaseFactory
 import io.ktor.application.*
 import io.ktor.features.ContentNegotiation
 import io.ktor.gson.gson
@@ -18,4 +19,6 @@ fun Application.mainModule() {
     install(Routing) {
         home();
     }
+
+    DatabaseFactory.init()
 }

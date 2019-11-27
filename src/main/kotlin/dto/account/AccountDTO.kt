@@ -7,8 +7,9 @@ data class AccountDTO (
     val username:   String,
     val email:      String,
     val pwd:        String,
-    val service_id: Int,
+    val serviceId: Int,
     val followers:  Int,
-    val cdate:      DateTime,
-    val mdate:      DateTime?
+    val rating :    Int,
+    val cdate:          DateTime,
+    val mdate:          DateTime
 )

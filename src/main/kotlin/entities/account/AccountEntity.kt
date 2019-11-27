@@ -1,8 +1,10 @@
 package entities.account
 
 import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.sql.Table
 
-class AccountEntity : IntIdTable("account.ACCOUNT") {
+object AccountEntity : Table("ACCOUNT") {
+    val id = integer("id").primaryKey().autoIncrement()
     val username = varchar("username", 50)
     val email = varchar("email", 100)
     val pwd = varchar("pwd", 250)

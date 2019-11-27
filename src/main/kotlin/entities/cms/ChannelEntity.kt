@@ -1,8 +1,13 @@
 package entities.cms
 
+import entities.account.AccountEntity
+import entities.account.AccountEntity.autoIncrement
+import entities.account.AccountEntity.primaryKey
 import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.sql.Table
 
-class ChannelEntity : IntIdTable("CHANNEL") {
+object ChannelEntity : Table("CHANNEL") {
+    val id = integer("id").primaryKey().autoIncrement()
     val name = varchar("name", 50)
     val description = varchar("description", 100)
     val serviceId = integer("service_id")
