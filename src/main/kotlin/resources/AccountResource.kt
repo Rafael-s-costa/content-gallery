@@ -13,19 +13,23 @@ fun Route.account() {
     post("/account/register") {
         val requestInfo = call.request.queryParameters.toMap();
         log.info("Received request for /Account/register with query params $requestInfo")
-        val registerResult = RegisterProcessor().process();
+        val registerResult = RegisterProcessor().process(requestInfo);
         call.respond(registerResult)
     }
     post("/account/login") {
-        LoginProcessor().process();
+        val requestInfo = call.request.queryParameters.toMap();
+        LoginProcessor().process(requestInfo);
     }
     post("/account/delete") {
-        DeleteAccountProcessor().process();
+        val requestInfo = call.request.queryParameters.toMap();
+        DeleteAccountProcessor().process(requestInfo);
     }
     post("/account/validate-email") {
-        ValidateEmailProcessor().process();
+        val requestInfo = call.request.queryParameters.toMap();
+        ValidateEmailProcessor().process(requestInfo);
     }
     post("/account/change-password") {
-        ChangePasswordProcessor().process();
+        val requestInfo = call.request.queryParameters.toMap();
+        ChangePasswordProcessor().process(requestInfo);
     }
 }

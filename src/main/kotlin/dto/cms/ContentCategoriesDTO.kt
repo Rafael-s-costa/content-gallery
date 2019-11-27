@@ -3,9 +3,9 @@ package dto.cms
 import org.joda.time.DateTime
 
 data class ContentCategoriesDTO (
-    val id:             Integer,
-    val content_id:     Integer,
-    val category_id:    Integer,
+    val id:             Int,
+    val content_id:     Int,
+    val category_id:    Int,
     val cdate:          DateTime,
     val mdate:          DateTime
 );

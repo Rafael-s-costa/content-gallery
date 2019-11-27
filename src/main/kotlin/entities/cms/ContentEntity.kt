@@ -1,4 +1,14 @@
 package entities.cms
 
-class ContentEntity {
+import org.jetbrains.exposed.dao.IntIdTable
+
+class ContentEntity : IntIdTable("CONTENT") {
+    val title = varchar("title", 250)
+    val url = varchar("url", 250)
+    val rating = integer("rating")
+    val authorId = integer("author_id")
+    val serviceId = integer("service_id")
+    val channelId = integer("channel_id")
+    val cdate = datetime("cdate")
+    val mdate = datetime("mdate")
 }

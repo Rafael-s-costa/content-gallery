@@ -3,12 +3,12 @@ package dto.account
 import org.joda.time.DateTime
 
 data class AccountDTO (
-    val id:         Integer,
+    val id:         Int,
     val username:   String,
     val email:      String,
     val pwd:        String,
-    val service_id: Integer,
-    val followers:  Integer,
+    val service_id: Int,
+    val followers:  Int,
     val cdate:      DateTime,
     val mdate:      DateTime?
 )

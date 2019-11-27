@@ -1,11 +1,11 @@
 package dto.cms
 
 data class ContentDTO (
-    val id:         Integer,
+    val id:         Int,
     val title:      String,
     val url:        String,
-    val rating:     Integer,
-    val author_id:  Integer,
-    val service_id: Integer,
-    val channel_id: Integer
+    val rating:     Int,
+    val author_id:  Int,
+    val service_id: Int,
+    val channel_id: Int
 );
