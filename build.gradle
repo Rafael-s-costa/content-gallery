@@ -25,6 +25,7 @@ dependencies {
     compile("ch.qos.logback:logback-classic:1.2.3")
     compile 'com.zaxxer:HikariCP:3.4.1'
     compile 'org.jetbrains.exposed:exposed:0.17.6'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
 }
 
 compileKotlin {
