@@ -5,6 +5,8 @@ import io.ktor.gson.gson
 import io.ktor.routing.*
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.jetty.Jetty
+import resources.account
+import resources.cms
 import resources.home
 
 fun main(args: Array<String>) {
@@ -18,6 +20,8 @@ fun Application.mainModule() {
     }
     install(Routing) {
         home();
+        account();
+        cms();
     }
 
     DatabaseFactory.init()
