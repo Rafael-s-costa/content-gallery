@@ -7,9 +7,9 @@ data class ContentDTO (
     val title:      String,
     val url:        String,
     val rating:     Int,
-    val authorId:  Int,
-    val serviceId: Int,
-    val channelId: Int,
-    val cdate: DateTime,
-    val mdate: DateTime
+    val authorId:   Int,
+    val serviceId:  Int,
+    val channelId:  Int,
+    val cdate:      DateTime,
+    val mdate:      DateTime
 );

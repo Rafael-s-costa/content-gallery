@@ -1,11 +1,9 @@
 package dao.account
 
-import dao.BaseDAO
 import db.DatabaseFactory
 import dto.account.AccountDTO
 import entities.account.AccountEntity
 import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.selectAll
 
 object AccountDAO {
@@ -13,7 +11,11 @@ object AccountDAO {
         AccountEntity.selectAll().map { mapToDTO(it) }
     }
 
-    fun mapToDTO(row: ResultRow) : AccountDTO =
+    suspend fun getById(id: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun mapToDTO(row: ResultRow) : AccountDTO =
         AccountDTO(
             id = row[AccountEntity.id],
             username = row[AccountEntity.username],
