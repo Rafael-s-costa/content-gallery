@@ -1,37 +1,55 @@
 package dao.account
 
-import dao.AbstractDAO
 import dao.BaseDAO
-import db.DatabaseFactory
-import dto.BaseDTO
+import db.DatabaseFactory.dbQuery
 import dto.account.AccountDTO
 import entities.account.AccountEntity
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.select
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
 
 object AccountDAO : BaseDAO<AccountDTO> {
-    override suspend fun getById(id: Int): AccountDTO? = DatabaseFactory.dbQuery {
+    override suspend fun getById(id: Int): AccountDTO? = dbQuery {
         AccountEntity.select {
             (AccountEntity.id eq id)
         }.mapNotNull { mapToDTO(it) }
             .singleOrNull()
     }
 
-    override suspend fun getAll(): List<AccountDTO>? = DatabaseFactory.dbQuery {
+    override suspend fun getAll(): List<AccountDTO>? = dbQuery {
         AccountEntity.selectAll().map { mapToDTO(it) }
     }
 
-    override suspend fun create(dataObject: AccountDTO) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun create(dataObject: AccountDTO): AccountDTO? {
+        var key = 0
+        dbQuery {
+            key = (AccountEntity.insert {
+                it[username] = dataObject.username
+                it[email] = dataObject.email
+                it[pwd] = dataObject.pwd
+            } get AccountEntity.id)
+        }
+        return getById(key)!!
     }
 
-    override suspend fun update(dataObject: AccountDTO): AccountDTO {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun update(dataObject: AccountDTO): AccountDTO? {
+        val id = dataObject.id
+        return if (id == null) {
+            create(dataObject)
+        } else {
+            dbQuery {
+                AccountEntity.update({ AccountEntity.id eq id }) {
+                    it[username] = dataObject.username
+                    it[email] = dataObject.email
+                    it[pwd] = dataObject.pwd
+                }
+            }
+            getById(id)
+        }
     }
 
-    override suspend fun deleteById(entityId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun deleteById(id: Int): Boolean {
+        return dbQuery {
+            AccountEntity.deleteWhere { AccountEntity.id eq id } > 0
+        }
     }
 
     override fun mapToDTO(row: ResultRow): AccountDTO =
