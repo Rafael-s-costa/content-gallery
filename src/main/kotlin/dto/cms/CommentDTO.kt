@@ -1,5 +1,6 @@
 package dto.cms
 
+import dto.BaseDTO
 import org.joda.time.DateTime
 
 data class CommentDTO (
@@ -10,4 +11,4 @@ data class CommentDTO (
     val rating:     Int,
     val cdate:      DateTime,
     val mdate:      DateTime
-);
+): BaseDTO()

@@ -1,5 +1,6 @@
 package dto.account
 
+import dto.BaseDTO
 import org.joda.time.DateTime
 
 data class AccountDTO (
@@ -12,4 +13,4 @@ data class AccountDTO (
     val rating :    Int,
     val cdate:      DateTime,
     val mdate:      DateTime
-)
+): BaseDTO()

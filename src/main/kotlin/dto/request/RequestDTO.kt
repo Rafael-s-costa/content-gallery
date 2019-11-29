@@ -1,5 +1,6 @@
 package dto.request
 
+import dto.BaseDTO
 import org.joda.time.DateTime
 
 data class RequestDTO (
@@ -9,4 +10,4 @@ data class RequestDTO (
     val payload:        String,
     val cdate:          DateTime,
     val mdate:          DateTime
-)
+): BaseDTO()

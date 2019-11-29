@@ -1,5 +1,6 @@
 package dto.cms
 
+import dto.BaseDTO
 import org.joda.time.DateTime
 
 data class ChannelAccountDTO (
@@ -9,4 +10,4 @@ data class ChannelAccountDTO (
     val followerTypeId:     Int,
     val cdate:              DateTime,
     val mdate:              DateTime
-)
+): BaseDTO()

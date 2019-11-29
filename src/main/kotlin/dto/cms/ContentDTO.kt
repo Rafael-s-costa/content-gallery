@@ -1,5 +1,6 @@
 package dto.cms
 
+import dto.BaseDTO
 import org.joda.time.DateTime
 
 data class ContentDTO (
@@ -12,4 +13,4 @@ data class ContentDTO (
     val channelId:  Int,
     val cdate:      DateTime,
     val mdate:      DateTime
-);
+): BaseDTO()

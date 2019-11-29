@@ -1,5 +1,6 @@
 package dto.cms
 
+import dto.BaseDTO
 import org.joda.time.DateTime
 
 data class CategoryDTO (
@@ -9,4 +10,4 @@ data class CategoryDTO (
     val serviceId:      Int,
     val cdate:          DateTime,
     val mdate:          DateTime
-);
+): BaseDTO()
