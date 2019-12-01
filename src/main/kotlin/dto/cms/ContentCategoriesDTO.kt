@@ -7,6 +7,6 @@ data class ContentCategoriesDTO (
     val id:             Int,
     val contentId:      Int,
     val categoryId:     Int,
-    val cdate:          DateTime,
-    val mdate:          DateTime
+    val cdate:          DateTime?,
+    val mdate:          DateTime?
 ): BaseDTO()

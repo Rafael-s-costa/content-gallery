@@ -8,6 +8,6 @@ object CommentEntity : Table("COMMENT") {
     val authorId    = integer("author_id")
     val comment     = varchar("comment", 255)
     val rating      = integer("rating")
-    val cdate       = datetime("cdate")
-    val mdate       = datetime("mdate")
+    val cdate       = datetime("cdate").nullable()
+    val mdate       = datetime("mdate").nullable()
 }

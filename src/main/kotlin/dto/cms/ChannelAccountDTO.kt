@@ -8,6 +8,6 @@ data class ChannelAccountDTO (
     val channelId:          Int,
     val accountId:          Int,
     val followerTypeId:     Int,
-    val cdate:              DateTime,
-    val mdate:              DateTime
+    val cdate:              DateTime?,
+    val mdate:              DateTime?
 ): BaseDTO()

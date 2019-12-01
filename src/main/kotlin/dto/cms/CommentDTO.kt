@@ -9,6 +9,6 @@ data class CommentDTO (
     val authorId:   Int,
     val comment:    String,
     val rating:     Int,
-    val cdate:      DateTime,
-    val mdate:      DateTime
+    val cdate:      DateTime?,
+    val mdate:      DateTime?
 ): BaseDTO()

@@ -10,6 +10,6 @@ object ContentEntity : Table("CONTENT") {
     val authorId    = integer("author_id")
     val serviceId   = integer("service_id")
     val channelId   = integer("channel_id")
-    val cdate       = datetime("cdate")
-    val mdate       = datetime("mdate")
+    val cdate       = datetime("cdate").nullable()
+    val mdate       = datetime("mdate").nullable()
 }

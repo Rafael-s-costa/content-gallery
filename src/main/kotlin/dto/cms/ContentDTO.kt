@@ -11,6 +11,6 @@ data class ContentDTO (
     val authorId:   Int,
     val serviceId:  Int,
     val channelId:  Int,
-    val cdate:      DateTime,
-    val mdate:      DateTime
+    val cdate:      DateTime?,
+    val mdate:      DateTime?
 ): BaseDTO()
